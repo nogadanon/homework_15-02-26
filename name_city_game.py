@@ -10,7 +10,8 @@ CAPITAL_CITIES = [
     "BANGKOK", "CANBERRA", "OTTAWA", "BRASILIA", "BUENOS AIRES"
 ]
 
-city = random.choice(CAPITAL_CITIES)
+#city = random.choice(CAPITAL_CITIES)
+city = 'CANBERRA'
 print(city)
 print('_ ' * len(city))
 # 'A'
@@ -38,13 +39,14 @@ print('_ ' * len(city))
 
 guesses_set = set()
 city_list = list(city)
+backup_city_list = city_list.copy()
 print_list = []
 print_list += '_' * len(city)
 if ' ' in city_list:
     print_list[city_list.index(' ')] = ' '
 print(f'You have {len(set(city_list)) * 2} attempts (number of letters in the city name * 2) ')
 while True:
-    if len(guesses_set) > len(set(city_list)) * 2:
+    if len(guesses_set) >= len(set(backup_city_list)) * 2:
         print('YOU LOST  ):')
     letter = input('Guess a letter: ').upper()
     if letter in guesses_set:
@@ -53,8 +55,7 @@ while True:
     guesses_set.add(letter)
     if letter not in city_list:
         print(f'the letter {letter} is not in the city name')
-    if letter in city_list:
-        guesses_set.add(letter)
+    else:
         while letter in city_list:
             print_list[city_list.index(letter)] = letter
             city_list[city_list.index(letter)] = '0'
