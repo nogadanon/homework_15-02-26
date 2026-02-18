@@ -10,8 +10,7 @@ CAPITAL_CITIES = [
     "BANGKOK", "CANBERRA", "OTTAWA", "BRASILIA", "BUENOS AIRES"
 ]
 
-#city = random.choice(CAPITAL_CITIES)
-city = 'CANBERRA'
+city = random.choice(CAPITAL_CITIES)
 print(city)
 print('_ ' * len(city))
 # 'A'
