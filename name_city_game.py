@@ -45,7 +45,7 @@ if ' ' in city_list:
     print_list[city_list.index(' ')] = ' '
 print(f'You have {len(set(city_list)) * 2} attempts (number of letters in the city name * 2) ')
 while True:
-    if len(guesses_set) >= len(set(backup_city_list)) * 2:
+    if len(guesses_set) == len(set(backup_city_list)) * 2:
         print('YOU LOST  ):')
     letter = input('Guess a letter: ').upper()
     if letter in guesses_set:
